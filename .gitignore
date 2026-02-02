@@ -26,7 +26,8 @@ go.work.sum
 
 # env file
 .env
-
+enwiki-latest-pages-logging10.xml
+enwiki-latest-pages-logging10.xml.gz
 # Editor/IDE
 # .idea/
 # .vscode/
