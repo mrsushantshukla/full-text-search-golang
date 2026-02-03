@@ -1,7 +1,18 @@
 package utils
 
+import (
+	"strings"
+	"unicode"
+)
+
+func tokenize(text string) []string {
+	return strings.FieldsFunc(text, func(r rune) bool {
+		return !unicode.IsLetter(r) && !unicode.IsNumber(r)
+	})
+}
+
 func analyze(text string) []string {
-	tokens := Tokenize(text)
+	tokens := tokenize(text)
 	tokens = lowerCaseFilter(tokens)
 	tokens = stopWordFilter(tokens)
 	tokens = stemmerFilter(tokens)

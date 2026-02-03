@@ -7,8 +7,8 @@ import (
 )
 
 type document struct {
-	Title string `xml:"title"`
-	Text  string `xml:"abstract"`
+	Title string `xml:"logtitle"`
+	Text  string `xml:"comment"`
 	URL   string `xml:"url"`
 	ID    int
 }
@@ -26,7 +26,7 @@ func LoadDocuments(dumpPath string) ([]document, error) {
 	defer gz.Close()
 	xdec := xml.NewDecoder(gz)
 	dump := struct {
-		Documents []document `xml:"doc"`
+		Documents []document `xml:"logitem"`
 	}{}
 	if err := xdec.Decode(&dump); err != nil {
 		return nil, err

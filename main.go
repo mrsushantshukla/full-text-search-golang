@@ -16,7 +16,7 @@ func main() {
 
 	log.Println("Full text search in progress")
 	start := time.Now()
-	docs, err := utils.loadDocuments(dumpPath)
+	docs, err := utils.LoadDocuments(dumpPath)
 	if err != nil {
 		log.Fatal("Could not load document: ", err)
 	}
@@ -30,6 +30,6 @@ func main() {
 	log.Printf("Search found %d documents in %v", len(matchedIDs), time.Since(start))
 	start = time.Now()
 	for _, id := range matchedIDs {
-		log.Printf("%d\t%s\n", id, docs[id].Text)
+		log.Printf("%d\t%s\n", id, docs[id].Title)
 	}
 }
